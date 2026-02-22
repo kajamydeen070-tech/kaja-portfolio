@@ -6,10 +6,247 @@
 <title>Kaja Mydeen | Data Analyst</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+transition:0.4s;
+}
+
+body{
+background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c1c1c);
+background-size:400% 400%;
+animation:gradient 12s ease infinite;
+color:white;
+overflow-x:hidden;
+}
+
+body.light-mode{
+background:linear-gradient(-45deg,#e0f7fa,#ffffff,#dbeafe,#f1f5f9);
+color:#111;
+}
+
+@keyframes gradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 50px;
+position:fixed;
+width:100%;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(15px);
+z-index:1000;
+}
+
+.nav-container{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+nav a{
+margin-left:20px;
+color:inherit;
+text-decoration:none;
+font-weight:500;
+}
+
+#theme-toggle{
+padding:8px 15px;
+border-radius:20px;
+border:none;
+cursor:pointer;
+}
+
+.logo-container{
+width:60px;
+height:60px;
+animation:floatLogo 3s ease-in-out infinite;
+}
+
+@keyframes floatLogo{
+0%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+100%{transform:translateY(0);}
+}
+
+.section{
+padding:120px 10%;
+text-align:center;
+}
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+}
+
+#three-container{
+position:absolute;
+width:100%;
+height:100%;
+z-index:0;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:800px;
+}
+
+.profile-img{
+width:160px;
+height:160px;
+border-radius:50%;
+object-fit:cover;
+box-shadow:0 0 25px #00f2fe;
+margin-bottom:20px;
+}
+
+.character{
+width:220px;
+margin:0 auto;
+}
+
+.btn{
+display:inline-block;
+margin:10px;
+padding:12px 30px;
+background:linear-gradient(45deg,#00f2fe,#4facfe);
+color:black;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.glass{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(20px);
+border-radius:20px;
+padding:40px;
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.project-card{
+background:rgba(255,255,255,0.1);
+border-radius:20px;
+overflow:hidden;
+transition:0.5s;
+transform-style:preserve-3d;
+}
+
+.project-card:hover{
+transform:rotateY(10deg) rotateX(10deg) scale(1.05);
+}
+
+.project-card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
+}
+
+.skills-container{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+justify-content:center;
+margin-top:30px;
+}
+
+.skills-container span{
+padding:10px 20px;
+background:rgba(0,242,254,0.2);
+border-radius:20px;
+font-weight:500;
+}
+
+footer{
+text-align:center;
+padding:20px;
+}
+/* ===== EXPERIENCE SECTION ===== */
+
+.timeline{
+max-width:900px;
+margin:50px auto 0;
+position:relative;
+}
+
+.timeline::before{
+content:"";
+position:absolute;
+left:50%;
+width:4px;
+height:100%;
+background:linear-gradient(#00f2fe,#4facfe);
+transform:translateX(-50%);
+}
+
+.timeline-item{
+width:50%;
+padding:20px 40px;
+position:relative;
+}
+
+.timeline-item:nth-child(odd){
+left:0;
+text-align:right;
+}
+
+.timeline-item:nth-child(even){
+left:50%;
+}
+
+.timeline-content{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(20px);
+padding:20px;
+border-radius:15px;
+transition:0.4s;
+}
+
+.timeline-content:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px #00f2fe;
+}
+
+.timeline-item::after{
+content:"";
+position:absolute;
+top:25px;
+width:18px;
+height:18px;
+background:#00f2fe;
+border-radius:50%;
+right:-9px;
+}
+
+.timeline-item:nth-child(even)::after{
+left:-9px;
+}
+</style>
 </head>
 
 <body>
@@ -26,6 +263,7 @@
 <a href="#certificates">Certificates</a>
 <a href="#skills">Skills</a>
 <a href="#contact">Contact</a>
+<a href="#experience">Experience</a>
 <a href="KAJA RESUME (3).pdf" download>Resume</a>
 </nav>
 <button id="theme-toggle">🌙</button>
@@ -119,6 +357,7 @@ onerror="this.src='https://source.unsplash.com/600x400/?award'">
 <section id="skills" class="section glass">
 <h2>Skills</h2>
 <div class="skills-container">
+<span>Web development</span>
 <span>SQL</span>
 <span>Power BI</span>
 <span>Tableau</span>
@@ -131,15 +370,159 @@ onerror="this.src='https://source.unsplash.com/600x400/?award'">
 <span>Machine Learning Basics</span>
 </div>
 </section>
+<!-- EXPERIENCE SECTION -->
+<section id="experience" class="section glass">
+<h2>Experience</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="timeline-content">
+<h3>Web Development Intern | Tirunelveli</h3>
+<h4>CODESPARK</h4>
+<p>
+Developed responsive web pages using HTML, CSS, and JavaScript.
+Implemented DOM manipulation, form validation, and event handling.
+Ensured cross-browser compatibility and mobile responsiveness.
+Gained exposure to Generative AI tools and automation concepts.
+</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-content">
+<h3>Robotics Developer Intern </h3>
+<h4>Technovation</h4>
+<p>
+Learned robotics and automation fundamentals.
+Worked on hardware-software integration and troubleshooting basics
+</p>
+</div>
+</div>
+
+</div>
+</section>
 
 <section id="contact" class="section">
 <h2>Contact</h2>
 <p>Email: kajamydeen070@gmail.com</p>
+<p>contact no: 9003852868</p>
 </section>
 
 <footer>© 2026 Kaja Mydeen</footer>
 
-<script src="script.js"></script>
+<script>
+    // Typing Animation
+const roles=["Data Analyst","Power BI Developer","SQL Specialist"];
+let i=0,j=0,isDeleting=false;
+
+function type(){
+let current=roles[i];
+document.getElementById("typing").textContent=current.substring(0,j);
+
+if(!isDeleting && j<current.length){ j++; }
+else if(isDeleting && j>0){ j--; }
+else{
+isDeleting=!isDeleting;
+i=(i+1)%roles.length;
+}
+setTimeout(type,100);
+}
+type();
+
+// Dark Mode
+const toggleBtn=document.getElementById("theme-toggle");
+
+if(localStorage.getItem("theme")==="light"){
+document.body.classList.add("light-mode");
+toggleBtn.textContent="☀️";
+}
+
+toggleBtn.onclick=()=>{
+document.body.classList.toggle("light-mode");
+
+if(document.body.classList.contains("light-mode")){
+localStorage.setItem("theme","light");
+toggleBtn.textContent="☀️";
+}else{
+localStorage.setItem("theme","dark");
+toggleBtn.textContent="🌙";
+}
+};
+
+// 3D Background (UNCHANGED)
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
+const renderer=new THREE.WebGLRenderer({alpha:true,antialias:true});
+renderer.setSize(window.innerWidth,window.innerHeight);
+document.getElementById("three-container").appendChild(renderer.domElement);
+
+const starGeometry=new THREE.BufferGeometry();
+const starVertices=[];
+for(let i=0;i<6000;i++){
+starVertices.push((Math.random()-0.5)*2000,(Math.random()-0.5)*2000,(Math.random()-0.5)*2000);
+}
+starGeometry.setAttribute("position",new THREE.Float32BufferAttribute(starVertices,3));
+const starMaterial=new THREE.PointsMaterial({color:0x00f2fe,size:1.5});
+const stars=new THREE.Points(starGeometry,starMaterial);
+scene.add(stars);
+
+const sphereGeometry=new THREE.SphereGeometry(60,64,64);
+const sphereMaterial=new THREE.MeshStandardMaterial({color:0x00f2fe,emissive:0x00f2fe});
+const sphere=new THREE.Mesh(sphereGeometry,sphereMaterial);
+scene.add(sphere);
+
+const light=new THREE.PointLight(0xffffff,2);
+light.position.set(200,200,200);
+scene.add(light);
+
+camera.position.z=400;
+
+function animate(){
+requestAnimationFrame(animate);
+stars.rotation.y+=0.0008;
+sphere.rotation.y+=0.005;
+renderer.render(scene,camera);
+}
+animate();
+
+// 3D Logo
+const logoScene=new THREE.Scene();
+const logoCamera=new THREE.PerspectiveCamera(75,1,0.1,1000);
+const logoRenderer=new THREE.WebGLRenderer({canvas:document.getElementById("logo3d"),alpha:true});
+logoRenderer.setSize(60,60);
+
+const logoGeometry=new THREE.TorusKnotGeometry(10,3,100,16);
+const logoMaterial=new THREE.MeshStandardMaterial({color:0x00f2fe,metalness:1,roughness:0.2});
+const logoMesh=new THREE.Mesh(logoGeometry,logoMaterial);
+logoScene.add(logoMesh);
+
+const logoLight=new THREE.PointLight(0xffffff,2);
+logoLight.position.set(50,50,50);
+logoScene.add(logoLight);
+
+logoCamera.position.z=40;
+
+function animateLogo(){
+requestAnimationFrame(animateLogo);
+logoMesh.rotation.x+=0.02;
+logoMesh.rotation.y+=0.02;
+logoRenderer.render(logoScene,logoCamera);
+}
+animateLogo();
+
+// Lottie Animation
+lottie.loadAnimation({
+container:document.getElementById("lottie-character"),
+renderer:"svg",
+loop:true,
+autoplay:true,
+path:"https://assets10.lottiefiles.com/packages/lf20_qp1q7mct.json"
+});
+
+</script>
 </body>
 </html>
+
+
 
